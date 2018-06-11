@@ -222,9 +222,8 @@ static void InitScreen(void)
   videolinecycle = 0; videolinenumber = 0;
 }
 
-void SetLibRetroVideoBuffer(uint32_t *video_buffer)
+int SetLibRetroVideoBuffer(uint32_t *video_buffer)
 {
-  printf("sizeof struct pix=%d\n", sizeof(struct pix));
   screen.w = XBITMAP;
   screen.h = YBITMAP;
   screen.pixels = video_buffer;
@@ -233,6 +232,7 @@ void SetLibRetroVideoBuffer(uint32_t *video_buffer)
   pmax = pmin + XBITMAP * YBITMAP;
   InitScreen();
   ClearScreen();
+  return sizeof(struct pix);
 }
 
 int video_serialize_size(void)
