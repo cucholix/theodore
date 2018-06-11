@@ -224,6 +224,7 @@ static void InitScreen(void)
 
 void SetLibRetroVideoBuffer(uint32_t *video_buffer)
 {
+  printf("sizeof struct pix=%d\n", sizeof(struct pix));
   screen.w = XBITMAP;
   screen.h = YBITMAP;
   screen.pixels = video_buffer;
